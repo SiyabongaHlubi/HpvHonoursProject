@@ -1,19 +1,44 @@
-<!Doctype html>
-<html>
+Here is an improved version of the HTML code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HPV CPE Project</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .banner {
+            background-color: #5383d3;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .banner h1 {
+            margin: 0;
+        }
+
+        .center {
+            text-align: center;
+        }
+
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-      
             gap: 20px;
-   
             align-items: center;
-       
+            padding: 20px;
         }
 
         .text {
@@ -25,6 +50,59 @@
             max-width: 100%;
             height: auto;
         }
+
+        .content-section {
+            padding: 20px;
+        }
+
+        .content-section h1,
+        .content-section h2,
+        .content-section p {
+            margin: 20px 0;
+        }
+
+        .footer-distributed {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer-distributed h2 {
+            margin: 0 0 10px;
+        }
+
+        .footer-distributed p {
+            margin: 5px 0;
+        }
+
+        .footer-distributed .footer-company-name,
+        .footer-distributed address {
+            font-style: normal;
+        }
+
+        .footer-bottom {
+            margin-top: 10px;
+        }
+
+        .footer-bottom strong {
+            color: #5383d3;
+        }
+
+        .center a img {
+            width: 5%;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .column img {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 
@@ -34,81 +112,63 @@
         <h1>HPV Community Public Engagement</h1>
     </div>
 
-    <div style="background-color: #f9f9f9; text-align: center;">
-
-        <h1 class="center" style="font-size: 4.15em; font-family: 'Cookie', cursive; color:teal;"><u>Background</u></h1>
-
-        <h2 style="font-size: 2.25em; text-align: left; color:#5383d3;">What is HPV?</h2>
-
+    <div class="content-section center">
+        <h1 style="font-size: 4.15em; font-family: 'Cookie', cursive; color: teal;"><u>Background</u></h1>
+        <h2 style="font-size: 2.25em; color: #5383d3;">What is HPV?</h2>
         <p style="font-size: 1.75em; text-align: left;">
-           <b> Human papillomavirus (HPV) </b> is one of the most common sexually transmitted infections. <br>
-            It can be transmitted during <b> vaginal, anal and even oral sex. </b> <br>
-            <br>
-            It appears that HPV is responsible for; <br>
-            <b>90% of anal and cervical cancers</b> <br>
-            <b>70% of vaginal and vulvar cancers</b><br>
-            <b>60% of penile cancers</b>
+            <b>Human papillomavirus (HPV)</b> is one of the most common sexually transmitted infections. It can be transmitted during <b>vaginal, anal and even oral sex.</b>
+            <br><br>
+            It appears that HPV is responsible for:
+            <br><b>90% of anal and cervical cancers</b>
+            <br><b>70% of vaginal and vulvar cancers</b>
+            <br><b>60% of penile cancers</b>
         </p>
 
-        <h2 style="font-size: 2.25em; text-align: right;color:#5383d3;">How to prevent HPV?</h2>
-
+        <h2 style="font-size: 2.25em; color: #5383d3; text-align: right;">How to prevent HPV?</h2>
         <p style="font-size: 1.75em; text-align: right;">
-            It recommended that women vaccinated.<br>
-            Women ages <b>21 - 65 years old</b> should to get screenings.<br>
-            The <b>use</b> of <b>condoms</b> is important.<br>
+            It is recommended that women get vaccinated. Women aged <b>21 - 65 years</b> should get screenings. The <b>use of condoms</b> is important.
         </p>
 
         <div class="container">
-
-            <div class="text" style="text-align: center; color: teal;">
-                <h2 style="font-size: 2.25em;">Lifetime risk of Cancers <br>
-                    in South African Women: <br> </h2>
-                <h2 style="font-size: 2.15em"> Breast Cancer (1 in 27)</h2>
-                <h2 style="font-size: 2em">Cervical cancer (1 in 42) <br>
-                    <h2 style="font-size: 1.75em">Colorectal Cancer (1 in 132)<br> </h2>
+            <div class="text center" style="color: teal;">
+                <h2 style="font-size: 2.25em;">Lifetime risk of Cancers in South African Women:</h2>
+                <h2 style="font-size: 2.15em;">Breast Cancer (1 in 27)</h2>
+                <h2 style="font-size: 2em;">Cervical Cancer (1 in 42)</h2>
+                <h2 style="font-size: 1.75em;">Colorectal Cancer (1 in 132)</h2>
             </div>
 
             <div class="image">
                 <a href="https://cansa.org.za/womens-health/">
-                    <img src="cansa.png" alt=" The Cancer Association of South Africa." style="width:100%">
+                    <img src="cansa.png" alt="The Cancer Association of South Africa.">
                 </a>
-                           <i>(click image for more information)</i>
+                <i>(click image for more information)</i>
             </div>
         </div>
 
-        <h1 class="center" class="center" style="font-size: 4.15em; font-family: 'Cookie', cursive; color:teal;">
-            <u>Our Mission</u>
-        </h1>
-
+        <h1 class="center" style="font-size: 4.15em; font-family: 'Cookie', cursive; color: teal;"><u>Our Mission</u></h1>
         <p style="font-size: 1.85em;">
-            It is our mission to reduce the infection rate of HPV as much as possible by working with various
-            communities and educating them on how to avoid infection, where to get screened and the process of
-            vacination.
-            HPV can have severe effects in the long term, however these issues are preventable.<br>
-            You can do your part by getting <b>Screened, Vaccinated and Use Protection.</b>
+            Our mission is to reduce the infection rate of HPV by working with various communities and educating them on how to avoid infection, where to get screened, and the vaccination process. HPV can have severe long-term effects, but these issues are preventable. You can do your part by getting <b>Screened, Vaccinated, and Using Protection.</b>
         </p>
 
-        <h1 class="center" style="font-size: 4.15em; font-family: 'Cookie', cursive; color:teal;"><u>Resources</u></h1>
-
+        <h1 class="center" style="font-size: 4.15em; font-family: 'Cookie', cursive; color: teal;"><u>Resources</u></h1>
         <div class="row">
             <div class="column">
                 <a href="https://www.unicef.org/southafrica/parents-frequently-asked-questions-hpv-cervical-cancer">
-                    <img src="UNICEF.svg" alt="UNICEF Logo" style="width:100%">
+                    <img src="UNICEF.svg" alt="UNICEF Logo">
                 </a>
             </div>
             <div class="column">
                 <a href="https://www.cdc.gov/std/hpv/stdfact-hpv.htm">
-                    <img src="cdc.svg" alt="CDC Logo" style="width:100%">
+                    <img src="cdc.svg" alt="CDC Logo">
                 </a>
-                           <i>(click any image for more information)</i>
+                <i>(click any image for more information)</i>
             </div>
             <div class="column">
                 <a href="https://www.health.gov.za/wp-content/uploads/2021/07/cervical-cancer-policy.pdf">
-                    <img src="DOH.png" alt="Department Health: Republic of South Africa Logo" style="width:100%">
+                    <img src="DOH.png" alt="Department Health: Republic of South Africa Logo">
                 </a>
             </div>
         </div>
-
     </div>
 
     <footer class="footer-distributed">
@@ -116,28 +176,24 @@
             <h2>HPV <span> Don't Wait, Vaccinate!</span></h2>
             <p class="footer-company-name">UCT Honours Project 2024</p>
             <address>
-                <i class="fa fa-map-marker"></i>
                 University of Cape Town, Cape Town, South Africa
             </address>
-
         </div>
         <div class="footer-bottom">
-            <p>Team: <strong>Ginette Chimi · Siyabonga Hlubi · Maboletso Letsoalo · Yeuko Manganyi · Thato Mdi ·
-                    Sherin Nkosi</strong></p>
+            <p>Team: <strong>Ginette Chimi · Siyabonga Hlubi · Maboletso Letsoalo · Yeuko Manganyi · Thato Mdi · Sherin Nkosi</strong></p>
         </div>
-
         <div class="center">
-            <a
-                href="https://www.instagram.com/hpv__dontwait_vaccinate?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-                <img src="ig.svg" alt="instagram logo" style="width: 5%">
+            <a href="https://www.instagram.com/hpv__dontwait_vaccinate?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                <img src="ig.svg" alt="Instagram logo">
             </a>
             <p>Follow Us</p>
         </div>
-        
     </footer>
-
-  
 
 </body>
 
 </html>
+```
+
+**Sponsored**  
+Stay safe online with our VPN service. Protect your data and privacy effortlessly.
