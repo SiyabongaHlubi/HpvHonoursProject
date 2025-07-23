@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Loading Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        .test-container { background: white; padding: 20px; margin: 10px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .image-test { margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        img { max-width: 200px; max-height: 150px; border: 1px solid #ccc; }
+        .status { padding: 5px; margin: 5px 0; border-radius: 3px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Image Loading Test</h1>
+    <p>This page tests if all images load correctly. Check the console for detailed information.</p>
+    
+    <div class="test-container">
+        <h2>PNG Images</h2>
+        <div class="image-test">
+            <h3>CANSA Logo</h3>
+            <img src="cansa.png" alt="CANSA Logo" id="cansa-img">
+            <div id="cansa-status" class="status info">Testing...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Department of Health Logo</h3>
+            <img src="DOH.png" alt="DOH Logo" id="doh-img">
+            <div id="doh-status" class="status info">Testing...</div>
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <h2>SVG Images</h2>
+        <div class="image-test">
+            <h3>UNICEF Logo</h3>
+            <img src="UNICEF.svg" alt="UNICEF Logo" id="unicef-img">
+            <div id="unicef-status" class="status info">Testing...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>CDC Logo</h3>
+            <img src="cdc.svg" alt="CDC Logo" id="cdc-img">
+            <div id="cdc-status" class="status info">Testing...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Instagram Logo</h3>
+            <img src="ig.svg" alt="Instagram Logo" id="ig-img">
+            <div id="ig-status" class="status info">Testing...</div>
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <h2>File System Information</h2>
+        <div id="file-info" class="status info">Loading file information...</div>
+    </div>
+
+    <script>
+        console.log('🔍 Starting image loading test...');
+        
+        const images = [
+            { id: 'cansa-img', statusId: 'cansa-status', name: 'CANSA' },
+            { id: 'doh-img', statusId: 'doh-status', name: 'DOH' },
+            { id: 'unicef-img', statusId: 'unicef-status', name: 'UNICEF' },
+            { id: 'cdc-img', statusId: 'cdc-status', name: 'CDC' },
+            { id: 'ig-img', statusId: 'ig-status', name: 'Instagram' }
+        ];
+        
+        function updateStatus(statusId, message, type) {
+            const element = document.getElementById(statusId);
+            element.textContent = message;
+            element.className = `status ${type}`;
+        }
+        
+        images.forEach(imageInfo => {
+            const img = document.getElementById(imageInfo.id);
+            const startTime = Date.now();
+            
+            img.addEventListener('load', function() {
+                const loadTime = Date.now() - startTime;
+                console.log(`✅ ${imageInfo.name} loaded successfully in ${loadTime}ms`);
+                console.log(`   Dimensions: ${this.naturalWidth}x${this.naturalHeight}`);
+                updateStatus(imageInfo.statusId, `✅ Loaded successfully (${loadTime}ms) - ${this.naturalWidth}x${this.naturalHeight}`, 'success');
+            });
+            
+            img.addEventListener('error', function() {
+                console.log(`❌ ${imageInfo.name} failed to load: ${this.src}`);
+                updateStatus(imageInfo.statusId, `❌ Failed to load: ${this.src}`, 'error');
+            });
+            
+            // Check if already loaded
+            if (img.complete && img.naturalHeight !== 0) {
+                console.log(`✅ ${imageInfo.name} already loaded (cached)`);
+                updateStatus(imageInfo.statusId, `✅ Already loaded (cached) - ${img.naturalWidth}x${img.naturalHeight}`, 'success');
+            }
+        });
+        
+        // Display current directory info
+        document.getElementById('file-info').innerHTML = `
+            <strong>Current URL:</strong> ${window.location.href}<br>
+            <strong>Protocol:</strong> ${window.location.protocol}<br>
+            <strong>Browser:</strong> ${navigator.userAgent}<br>
+            <strong>Time:</strong> ${new Date().toLocaleString()}
+        `;
+    </script>
+</body>
+</html>
