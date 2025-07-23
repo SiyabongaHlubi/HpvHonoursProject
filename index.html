@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="HPV Community Public Engagement - Learn about HPV prevention, vaccination, and screening. Educational resource by UCT Honours students.">
     <meta name="keywords" content="HPV, human papillomavirus, vaccination, cervical cancer, prevention, health education, South Africa">
     <meta name="author" content="UCT Honours Project Team 2024">
@@ -27,6 +28,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical images for Safari -->
+    <link rel="preload" as="image" href="cansa.png" type="image/png">
+    <link rel="preload" as="image" href="DOH.png" type="image/png">
     
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -89,7 +94,9 @@
                            aria-label="Visit CANSA website for women's health information">
                             <img src="cansa.png" 
                                  alt="The Cancer Association of South Africa logo - supporting cancer awareness and research"
-                                 loading="lazy">
+                                 width="400" 
+                                 height="197"
+                                 decoding="async">
                         </a>
                         <p class="image-caption">(click image for more information)</p>
                     </div>
@@ -117,7 +124,9 @@
                            aria-label="Visit UNICEF South Africa for HPV and cervical cancer information">
                             <img src="UNICEF.svg" 
                                  alt="UNICEF logo - United Nations Children's Fund supporting health education"
-                                 loading="lazy">
+                                 width="150" 
+                                 height="150"
+                                 decoding="async">
                         </a>
                     </div>
                     <div class="resource-item">
@@ -127,7 +136,9 @@
                            aria-label="Visit CDC for comprehensive HPV infection information">
                             <img src="cdc.svg" 
                                  alt="CDC logo - Centers for Disease Control and Prevention providing health guidance"
-                                 loading="lazy">
+                                 width="150" 
+                                 height="150"
+                                 decoding="async">
                         </a>
                         <p class="resource-caption">(click any image for more information)</p>
                     </div>
@@ -138,7 +149,9 @@
                            aria-label="Download South African Department of Health cervical cancer policy document">
                             <img src="DOH.png" 
                                  alt="Department of Health Republic of South Africa logo - official health policy and guidelines"
-                                 loading="lazy">
+                                 width="400" 
+                                 height="151"
+                                 decoding="async">
                         </a>
                     </div>
                 </div>
@@ -163,13 +176,41 @@
                    target="_blank"
                    rel="noopener noreferrer"
                    aria-label="Follow us on Instagram for HPV awareness updates">
-                    <img src="ig.svg" 
-                         alt="Instagram logo - follow our social media for updates"
-                         loading="lazy">
+                                         <img src="ig.svg" 
+                          alt="Instagram logo - follow our social media for updates"
+                          width="50" 
+                          height="50"
+                          decoding="async">
                 </a>
                 <p>Follow Us</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Safari image loading fallback
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(function(img) {
+                img.addEventListener('error', function() {
+                    console.log('Image failed to load:', this.src);
+                    // Retry loading the image
+                    const src = this.src;
+                    this.src = '';
+                    setTimeout(() => {
+                        this.src = src;
+                    }, 100);
+                });
+                
+                // Force redraw for Safari
+                if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
+                    img.style.opacity = '0';
+                    img.onload = function() {
+                        this.style.opacity = '1';
+                    };
+                }
+            });
+        });
+    </script>
 </body>
 </html>

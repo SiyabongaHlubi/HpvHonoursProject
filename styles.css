@@ -253,9 +253,12 @@ strong {
 
 .statistics-image img {
     width: 100%;
+    max-width: 400px;
     height: auto;
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .statistics-image img:hover {
@@ -309,6 +312,9 @@ strong {
     max-width: 150px;
     height: auto;
     transition: filter 0.3s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    object-fit: contain;
 }
 
 .resource-item img:hover {
@@ -376,6 +382,9 @@ strong {
     width: 50px;
     height: 50px;
     transition: transform 0.3s ease, filter 0.3s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    object-fit: contain;
 }
 
 .footer-social img:hover {
@@ -386,6 +395,30 @@ strong {
 .footer-social p {
     margin-top: var(--spacing-sm);
     font-size: var(--font-size-lg);
+}
+
+/* Image Styles for Safari Compatibility */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Ensure images load properly on Safari */
+img[src$=".png"], 
+img[src$=".jpg"], 
+img[src$=".jpeg"] {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+img[src$=".svg"] {
+    image-rendering: auto;
 }
 
 /* Link Styles */
@@ -553,5 +586,21 @@ a:focus {
         --text-light: #000000;
         --background-light: #ffffff;
         --background-white: #ffffff;
+    }
+}
+
+/* Safari-specific fixes */
+@supports (-webkit-appearance: none) {
+    img {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .statistics-image img,
+    .resource-item img,
+    .footer-social img {
+        will-change: transform;
     }
 }
