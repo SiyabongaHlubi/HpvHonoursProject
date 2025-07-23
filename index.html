@@ -85,6 +85,19 @@
                                 <span class="risk-value">(1 in 132)</span>
                             </div>
                         </div>
+                        <div class="stats-note">
+                            <p><em>Source: Cancer Association of South Africa (CANSA)</em></p>
+                            <p><strong>HPV is directly linked to cervical cancer prevention through vaccination and regular screening.</strong></p>
+                            <div class="additional-stats">
+                                <h4>Key Prevention Facts:</h4>
+                                <ul>
+                                    <li>HPV vaccination can prevent up to <strong>90% of cervical cancers</strong></li>
+                                    <li>Regular screening (Pap smears) can detect precancerous changes early</li>
+                                    <li>Best protection: Vaccination + Regular screening + Safe practices</li>
+                                    <li>Vaccination is most effective when given before exposure to HPV</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="statistics-image">
@@ -92,11 +105,15 @@
                            target="_blank" 
                            rel="noopener noreferrer"
                            aria-label="Visit CANSA website for women's health information">
-                            <img src="cansa.png" 
+                            <img src="./cansa.png" 
                                  alt="The Cancer Association of South Africa logo - supporting cancer awareness and research"
                                  width="400" 
                                  height="197"
-                                 decoding="async">
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="display:none; padding: 20px; background: #f0f0f0; border: 2px dashed #ccc; text-align: center; border-radius: 8px;">
+                                <p style="margin: 0; color: #666;">📸 CANSA Logo</p>
+                                <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #888;">Cancer Association of South Africa</p>
+                            </div>
                         </a>
                         <p class="image-caption">(click image for more information)</p>
                     </div>
@@ -122,11 +139,15 @@
                            target="_blank" 
                            rel="noopener noreferrer"
                            aria-label="Visit UNICEF South Africa for HPV and cervical cancer information">
-                            <img src="UNICEF.svg" 
+                            <img src="./UNICEF.svg" 
                                  alt="UNICEF logo - United Nations Children's Fund supporting health education"
                                  width="150" 
                                  height="150"
-                                 decoding="async">
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="display:none; padding: 15px; background: #e3f2fd; border: 2px dashed #2196F3; text-align: center; border-radius: 8px;">
+                                <p style="margin: 0; color: #1976D2;">🏛️ UNICEF</p>
+                                <p style="margin: 5px 0 0 0; font-size: 0.8em; color: #1565C0;">United Nations Children's Fund</p>
+                            </div>
                         </a>
                     </div>
                     <div class="resource-item">
@@ -134,11 +155,15 @@
                            target="_blank" 
                            rel="noopener noreferrer"
                            aria-label="Visit CDC for comprehensive HPV infection information">
-                            <img src="cdc.svg" 
+                            <img src="./cdc.svg" 
                                  alt="CDC logo - Centers for Disease Control and Prevention providing health guidance"
                                  width="150" 
                                  height="150"
-                                 decoding="async">
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="display:none; padding: 15px; background: #fff3e0; border: 2px dashed #ff9800; text-align: center; border-radius: 8px;">
+                                <p style="margin: 0; color: #f57c00;">🏥 CDC</p>
+                                <p style="margin: 5px 0 0 0; font-size: 0.8em; color: #ef6c00;">Centers for Disease Control</p>
+                            </div>
                         </a>
                         <p class="resource-caption">(click any image for more information)</p>
                     </div>
@@ -147,11 +172,15 @@
                            target="_blank" 
                            rel="noopener noreferrer"
                            aria-label="Download South African Department of Health cervical cancer policy document">
-                            <img src="DOH.png" 
+                            <img src="./DOH.png" 
                                  alt="Department of Health Republic of South Africa logo - official health policy and guidelines"
                                  width="400" 
                                  height="151"
-                                 decoding="async">
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="display:none; padding: 20px; background: #e8f5e8; border: 2px dashed #4caf50; text-align: center; border-radius: 8px;">
+                                <p style="margin: 0; color: #2e7d32;">🏛️ Department of Health</p>
+                                <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #388e3c;">Republic of South Africa</p>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -176,11 +205,12 @@
                    target="_blank"
                    rel="noopener noreferrer"
                    aria-label="Follow us on Instagram for HPV awareness updates">
-                                         <img src="ig.svg" 
+                                                              <img src="./ig.svg" 
                           alt="Instagram logo - follow our social media for updates"
                           width="50" 
                           height="50"
-                          decoding="async">
+                          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                     <div style="display:none; width: 50px; height: 50px; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">IG</div>
                 </a>
                 <p>Follow Us</p>
             </div>
@@ -188,26 +218,55 @@
     </footer>
 
     <script>
-        // Safari image loading fallback
+        // Enhanced image loading and debugging
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, checking images...');
+            
             const images = document.querySelectorAll('img');
-            images.forEach(function(img) {
-                img.addEventListener('error', function() {
-                    console.log('Image failed to load:', this.src);
-                    // Retry loading the image
-                    const src = this.src;
-                    this.src = '';
-                    setTimeout(() => {
-                        this.src = src;
-                    }, 100);
+            console.log('Found', images.length, 'images');
+            
+            images.forEach(function(img, index) {
+                console.log('Image', index + 1, ':', img.src);
+                
+                // Add load event listener
+                img.addEventListener('load', function() {
+                    console.log('✅ Image loaded successfully:', this.src);
+                    this.style.opacity = '1';
                 });
                 
-                // Force redraw for Safari
-                if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
-                    img.style.opacity = '0';
-                    img.onload = function() {
-                        this.style.opacity = '1';
-                    };
+                // Enhanced error handling
+                img.addEventListener('error', function() {
+                    console.log('❌ Image failed to load:', this.src);
+                    console.log('Attempting fallback...');
+                    
+                    // Try different approaches
+                    const originalSrc = this.src;
+                    const filename = originalSrc.split('/').pop();
+                    
+                    // Try without ./ prefix
+                    if (originalSrc.startsWith('./')) {
+                        this.src = filename;
+                        return;
+                    }
+                    
+                    // Try with ./ prefix
+                    if (!originalSrc.startsWith('./')) {
+                        this.src = './' + filename;
+                        return;
+                    }
+                    
+                    // If all fails, show fallback
+                    console.log('All attempts failed, showing fallback');
+                });
+                
+                // Set initial opacity for smooth loading
+                img.style.transition = 'opacity 0.3s ease';
+                img.style.opacity = '0';
+                
+                // Check if image is already cached/loaded
+                if (img.complete && img.naturalHeight !== 0) {
+                    img.style.opacity = '1';
+                    console.log('✅ Image already loaded:', img.src);
                 }
             });
         });

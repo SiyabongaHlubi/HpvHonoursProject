@@ -274,6 +274,56 @@ strong {
     text-align: center;
 }
 
+.stats-note {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--background-white);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.stats-note p {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-base);
+}
+
+.stats-note em {
+    color: var(--text-light);
+    font-size: var(--font-size-sm);
+}
+
+.additional-stats {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid #e0e0e0;
+}
+
+.additional-stats h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+}
+
+.additional-stats ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.additional-stats li {
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    position: relative;
+    line-height: 1.6;
+}
+
+.additional-stats li::before {
+    content: "✓";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
 /* Mission Section */
 .mission-text {
     font-size: var(--font-size-xl);
